@@ -1,0 +1,152 @@
+[VarDef, DEBUG, 1] //debug is off ( we load zsc files instead)
+[VarDef, EXT, ".txt"] //debug is off ( we load zsc files instead)
+[VarSet, VERSION, [StrExtract, [ZBrushInfo, 0], 0, 3]]
+
+[VarDef, backline, [StrMerge, [StrFromAsc, 13],[StrFromAsc, 10]]]
+[VarDef, tab, [StrFromAsc, 9]]
+[VarDef, null, [StrFromAsc, 0]]
+[VarDef, whitespace, [StrFromAsc, 32]]
+
+
+[If, (DEBUG == 1 )
+	,//cmds
+	[VarSet, EXT, ".txt"]
+]
+
+
+// [RoutineDef, GetVersion,
+//   	[Note, VERSION]
+// ]
+// [RoutineCall, GetVersion]
+
+[RoutineDef, LoadzCore,
+	[If, [IExists, "File:zCore" ],
+		[IClose, "File:zCore"]
+	]
+	[FileNameSetNext, [StrMerge, "zcore_", VERSION, EXT]]
+	[IPress, "ZScript:load"]
+]
+
+[RoutineDef, Loadzillustrator,
+	[If, [IExists, "Zplugin:zIllustrator" ],
+		[IClose, "Zplugin:zIllustrator"]
+	]
+	[FileNameSetNext, [StrMerge, "zIllustrator_", VERSION, EXT]]
+	[IPress, "ZScript:load"]
+]
+
+[RoutineDef, LoadMatiere3d,
+	[If, [IExists, "Zplugin:Matiere" ],
+		[IClose, "Zplugin:Matiere"]
+	]
+	[FileNameSetNext, [StrMerge, "matiere3d_", VERSION, EXT]]
+	[IPress, "ZScript:load"]
+]
+
+[RoutineDef, LoadZBaker,
+	[If, [IExists, "Zplugin:zBaker" ],
+		[IClose, "Zplugin:zBaker"]
+	]	
+	[FileNameSetNext, [StrMerge, "zbaker_", VERSION, EXT]]
+	[IPress, "ZScript:load"]
+]
+
+[RoutineDef, LoadZCyclerPro,
+	[If, [IExists, "Zplugin:ZCycler Pro" ],
+		[IClose, "Zplugin:ZCycler Pro"]
+	]
+	[VarSet, path, [StrMerge, "zcycler_", VERSION, EXT]]
+	[FileNameSetNext, path]
+	[IPress, "ZScript:load"]	
+]
+
+[RoutineDef, LoadZSketcher,	
+	[If, [IExists, "Zplugin:ZSketcher" ],
+		[IClose, "Zplugin:ZSketcher"]
+	]
+	[FileNameSetNext, [StrMerge, "zsketcher_", VERSION, EXT]]
+	[IPress, "ZScript:load"]
+]
+
+[RoutineDef, LoadSmartUI,	
+	[If, [IExists, "Zplugin:Smart UI" ],
+		[IClose, "Zplugin:Smart UI"]
+	]
+	[FileNameSetNext, [StrMerge,"", "smart-ui-2020.txt"]]//", VERSION, EXT]]
+	[IPress, "ZScript:load"]
+]
+
+
+//PyZbrush
+[RoutineDef, LoadPyZbrush,
+	
+	[If, [IExists, "Zplugin:Python for ZBrush" ],
+		[IClose, "Zplugin:Python for ZBrush"]
+	]
+	[FileNameSetNext, [StrMerge, "PyZbrush_", VERSION, EXT]]
+	[IPress, "ZScript:load"]
+
+]
+
+//Lumiere
+[RoutineDef, LoadLumiere,	
+	[If, [IExists, "Zplugin:Lumiere" ],
+		[IClose, "Zplugin:Lumiere"]
+	]
+	[VarSet, path, [StrMerge, "Lumiere_", VERSION, EXT]]
+	[FileNameSetNext, path]
+	[IPress, "ZScript:load"]
+]
+
+//Plugins Manager
+[RoutineDef, LoadPluginsManager,	
+	[If, [IExists, "Zplugin:Plugins Manager"],
+		[IClose, "Zplugin:Plugins Manager"]
+	]
+	[FileNameSetNext, [StrMerge, "_Plugins_Manager_", VERSION, EXT]]
+	[IPress, "ZScript:load"]
+]
+
+
+[ISubPalette, "Zplugin:PuppetMaster Dev Tools"]
+
+
+[IButton,"Zplugin:PuppetMaster Dev Tools:Reload plugin","Reload PuppetMaster Dev Tools plugin.",
+	[IShowActions,0]
+	[If, [IExists, "Zplugin:PuppetMaster Dev Tools"],
+		[IClose, "Zplugin:PuppetMaster Dev Tools"]
+		[IPress, "Zscript:Reload"]
+	]
+,,1]
+
+[IButton, "Zplugin:PuppetMaster Dev Tools:a.zCycler Pro", "Reloading zCycler",
+	[RoutineCall, LoadZCyclerPro]
+,,1/2]
+[IButton, "Zplugin:PuppetMaster Dev Tools:PyZbrush", "Reloading PyZbrush plugin.",
+	[RoutineCall, LoadPyZbrush]
+,,1/2]
+[IButton, "Zplugin:PuppetMaster Dev Tools:Matiere 3D", "Reload Matiere Toolset.",
+	[RoutineCall, LoadMatiere3d]
+,,1/2]
+[IButton, "Zplugin:PuppetMaster Dev Tools:Lumiere", "Reloading Lumiere plugin.",
+	[RoutineCall, LoadLumiere]
+,,1/2]
+[IButton, "Zplugin:PuppetMaster Dev Tools:zCore"," Reloading ZGameTools Core",	
+	[RoutineCall, LoadZCore]
+,,1/2]
+[IButton, "Zplugin:PuppetMaster Dev Tools:zIllustrator", "Reloading zIllustrator.",
+	[RoutineCall, LoadZIllustrator]
+,,1/2]
+[IButton, "Zplugin:PuppetMaster Dev Tools:Bakery", "Reloading ZGameTools For Baking models",
+	[RoutineCall, LoadZBaker]
+,,1/2]
+[IButton, "Zplugin:PuppetMaster Dev Tools:a.zSketcher", "Reloading zSketcher",
+	[RoutineCall, LoadZSketcher]
+,,1/2]
+[IButton, "Zplugin:PuppetMaster Dev Tools:a.Smart UI", "Reloading SmartUI",
+	[RoutineCall, LoadSmartUI]
+,,1/2]
+[IButton, "Zplugin:PuppetMaster Dev Tools:Plugin Manager", "Reloading Plugins Manager plugin.",
+	[RoutineCall, LoadPluginsManager]
+,,1/2]
+

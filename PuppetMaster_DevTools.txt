@@ -72,7 +72,7 @@
 	[If, [IExists, "Zplugin:Smart UI" ],
 		[IClose, "Zplugin:Smart UI"]
 	]
-	[FileNameSetNext, [StrMerge,"", "smart-ui-2020.txt"]]//", VERSION, EXT]]
+	[FileNameSetNext, [StrMerge,"", "smart-ui-", VERSION, EXT]]//", VERSION, EXT]]
 	[IPress, "ZScript:load"]
 ]
 

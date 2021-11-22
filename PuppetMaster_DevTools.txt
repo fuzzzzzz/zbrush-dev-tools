@@ -27,7 +27,7 @@
 	[IPress, "ZScript:load"]
 ]
 
-[RoutineDef, Loadzillustrator,
+[RoutineDef, LoadzIllustrator,
 	[If, [IExists, "Zplugin:zIllustrator" ],
 		[IClose, "Zplugin:zIllustrator"]
 	]
@@ -43,11 +43,11 @@
 	[IPress, "ZScript:load"]
 ]
 
-[RoutineDef, LoadZBaker,
-	[If, [IExists, "Zplugin:zBaker" ],
-		[IClose, "Zplugin:zBaker"]
+[RoutineDef, LoadBakery,
+	[If, [IExists, "Zplugin:Bakery" ],
+		[IClose, "Zplugin:Bakery"]
 	]	
-	[FileNameSetNext, [StrMerge, "zbaker_", VERSION, EXT]]
+	[FileNameSetNext, [StrMerge, "bakery_", VERSION, EXT]]
 	[IPress, "ZScript:load"]
 ]
 
@@ -128,17 +128,17 @@
 [IButton, "Zplugin:PuppetMaster Dev Tools:Matiere 3D", "Reload Matiere Toolset.",
 	[RoutineCall, LoadMatiere3d]
 ,,1/2]
-[IButton, "Zplugin:PuppetMaster Dev Tools:Lumiere", "Reloading Lumiere plugin.",
+[IButton, "Zplugin:PuppetMaster Dev Tools:a.Lumiere", "Reloading Lumiere plugin.",
 	[RoutineCall, LoadLumiere]
 ,,1/2]
 [IButton, "Zplugin:PuppetMaster Dev Tools:zCore"," Reloading ZGameTools Core",	
 	[RoutineCall, LoadZCore]
 ,,1/2]
-[IButton, "Zplugin:PuppetMaster Dev Tools:zIllustrator", "Reloading zIllustrator.",
+[IButton, "Zplugin:PuppetMaster Dev Tools:a.zIllustrator", "Reloading zIllustrator.",
 	[RoutineCall, LoadZIllustrator]
 ,,1/2]
 [IButton, "Zplugin:PuppetMaster Dev Tools:Bakery", "Reloading ZGameTools For Baking models",
-	[RoutineCall, LoadZBaker]
+	[RoutineCall, LoadBakery]
 ,,1/2]
 [IButton, "Zplugin:PuppetMaster Dev Tools:a.zSketcher", "Reloading zSketcher",
 	[RoutineCall, LoadZSketcher]

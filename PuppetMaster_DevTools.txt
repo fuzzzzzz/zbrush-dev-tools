@@ -46,7 +46,7 @@
 [RoutineDef, LoadBakery,
 	[If, [IExists, "Zplugin:Bakery" ],
 		[IClose, "Zplugin:Bakery"]
-	]	
+	]
 	[FileNameSetNext, [StrMerge, "bakery_", VERSION, EXT]]
 	[IPress, "ZScript:load"]
 ]
@@ -55,8 +55,7 @@
 	[If, [IExists, "Zplugin:ZCycler Pro" ],
 		[IClose, "Zplugin:ZCycler Pro"]
 	]
-	[VarSet, path, [StrMerge, "zcycler_", VERSION, EXT]]
-	[FileNameSetNext, path]
+	[FileNameSetNext, [StrMerge, "zcycler_", VERSION, EXT]]
 	[IPress, "ZScript:load"]	
 ]
 
@@ -108,45 +107,23 @@
 ]
 
 
-[ISubPalette, "Zplugin:PuppetMaster Dev Tools"]
-
-
-[IButton,"Zplugin:PuppetMaster Dev Tools:Reload plugin","Reload PuppetMaster Dev Tools plugin.",
+[ISubPalette, "Zplugin:Dev Tools"]
+[IButton,"Zplugin:Dev Tools:Reload this plugin","Reload ZBrush Dev Tools plugin.",
 	[IShowActions,0]
-	[If, [IExists, "Zplugin:PuppetMaster Dev Tools"],
-		[IClose, "Zplugin:PuppetMaster Dev Tools"]
+	[If, [IExists, "Zplugin:Dev Tools"],
+		[IClose, "Zplugin:Dev Tools"]
 		[IPress, "Zscript:Reload"]
 	]
 ,,1]
 
-[IButton, "Zplugin:PuppetMaster Dev Tools:a.zCycler Pro", "Reloading zCycler",
-	[RoutineCall, LoadZCyclerPro]
-,,1/2]
-[IButton, "Zplugin:PuppetMaster Dev Tools:PyZbrush", "Reloading PyZbrush plugin.",
-	[RoutineCall, LoadPyZbrush]
-,,1/2]
-[IButton, "Zplugin:PuppetMaster Dev Tools:Matiere 3D", "Reload Matiere Toolset.",
-	[RoutineCall, LoadMatiere3d]
-,,1/2]
-[IButton, "Zplugin:PuppetMaster Dev Tools:a.Lumiere", "Reloading Lumiere plugin.",
-	[RoutineCall, LoadLumiere]
-,,1/2]
-[IButton, "Zplugin:PuppetMaster Dev Tools:zCore"," Reloading ZGameTools Core",	
-	[RoutineCall, LoadZCore]
-,,1/2]
-[IButton, "Zplugin:PuppetMaster Dev Tools:a.zIllustrator", "Reloading zIllustrator.",
-	[RoutineCall, LoadZIllustrator]
-,,1/2]
-[IButton, "Zplugin:PuppetMaster Dev Tools:Bakery", "Reloading ZGameTools For Baking models",
-	[RoutineCall, LoadBakery]
-,,1/2]
-[IButton, "Zplugin:PuppetMaster Dev Tools:a.zSketcher", "Reloading zSketcher",
-	[RoutineCall, LoadZSketcher]
-,,1/2]
-[IButton, "Zplugin:PuppetMaster Dev Tools:a.Smart UI", "Reloading SmartUI",
-	[RoutineCall, LoadSmartUI]
-,,1/2]
-[IButton, "Zplugin:PuppetMaster Dev Tools:Plugin Manager", "Reloading Plugins Manager plugin.",
-	[RoutineCall, LoadPluginsManager]
-,,1/2]
+[IButton, "Zplugin:Dev Tools:a.zCycler Pro", "Reloading zCycler", [RoutineCall, LoadZCyclerPro],,1/2]
+[IButton, "Zplugin:Dev Tools:a.PyZbrush", "Reloading PyZbrush plugin.", [RoutineCall, LoadPyZbrush],,1/2]
+[IButton, "Zplugin:Dev Tools:a.Matiere 3D", "Reload Matiere Toolset.", [RoutineCall, LoadMatiere3d],,1/2]
+[IButton, "Zplugin:Dev Tools:a.Lumiere", "Reloading Lumiere plugin.", [RoutineCall, LoadLumiere],,1/2]
+[IButton, "Zplugin:Dev Tools:a.zCore"," Reloading ZGameTools Core", [RoutineCall, LoadZCore],,1/2]
+[IButton, "Zplugin:Dev Tools:a.zIllustrator", "Reloading zIllustrator.", [RoutineCall, LoadZIllustrator],,1/2]
+[IButton, "Zplugin:Dev Tools:a.Bakery", "Reloading ZGameTools For Baking models", [RoutineCall, LoadBakery],,1/2]
+[IButton, "Zplugin:Dev Tools:a.zSketcher", "Reloading zSketcher", [RoutineCall, LoadZSketcher],,1/2]
+[IButton, "Zplugin:Dev Tools:a.Smart UI", "Reloading SmartUI", [RoutineCall, LoadSmartUI],,1/2]
+[IButton, "Zplugin:Dev Tools:a.Plugin Manager", "Reloading Plugins Manager plugin.", [RoutineCall, LoadPluginsManager],,1/2]
 
